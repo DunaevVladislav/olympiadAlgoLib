@@ -4,14 +4,16 @@
 #include <functional>
 #include <vector>
 
-template<class TType, class TFunction = std::function<TType(TType, TType)>>
-class ISegmentSolver {
-private:
-    const TFunction m_function;
-public:
-    virtual TType valueOnSegment(std::size_t left, std::size_t right) = 0;
+namespace cpa {
 
-    virtual std::vector<TType *> nodesOnSegment(std::size_t left, std::size_t right) = 0;
-};
+    template<class TType, class TFunction = std::function<TType(const TType&, const TType&)>>
+    class ISegmentSolver {
+    protected:
+        TFunction m_function;
+    public:
+        virtual TType valueOnSegment(std::size_t t_left_index, std::size_t t_right_index) const = 0;
+    };
+
+}
 
 #endif //COMPETITIVE_ALGORITHMS_ISEGMENTSOLVER_H
