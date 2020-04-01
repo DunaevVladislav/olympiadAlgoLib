@@ -11,13 +11,13 @@ namespace cpa {
         std::size_t m_size{};
     public:
         [[nodiscard]]
-        std::size_t size() const;
+        std::size_t size() const noexcept;
 
-        virtual const TType& getValueAt(std::size_t t_index) const = 0;
+        virtual const TType &getValueAt(std::size_t t_index) const = 0;
     };
 
     template<class TType>
-    std::size_t IDataStructure<TType>::size() const {
+    std::size_t IDataStructure<TType>::size() const noexcept {
         return this->m_size;
     }
 
