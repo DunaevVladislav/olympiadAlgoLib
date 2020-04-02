@@ -9,6 +9,8 @@
 #include "../competitiveProgAlgoLib/ISparseTable.h"
 #include "../competitiveProgAlgoLib/SegmentTree.h"
 #include "../competitiveProgAlgoLib/FenwickTree.h"
+#include "../competitiveProgAlgoLib/SqrtDecomposer.h"
+#include "../competitiveProgAlgoLib/Treap.h"
 
 void test1() {
     const std::size_t count_iter = 100;
@@ -40,10 +42,12 @@ void test1() {
             }
         }
         std::vector<std::pair<std::string, cpa::ISegmentSolver<int> *>> testing_struct{
-                {"Array",        new cpa::Array<int>(array.begin(), array.end(), minimum)},
-                {"Sparse table", new cpa::SparseTable<int>(array.begin(), array.end(), minimum)},
-                {"Segment tree", new cpa::SegmentTree<int>(array.begin(), array.end(), minimum)},
-                {"Fenwick tree", new cpa::FenwickTree<int>(array.begin(), array.end(), minimum)},
+                {"Array",           new cpa::Array<int>(array.begin(), array.end(), minimum)},
+                {"Sparse table",    new cpa::SparseTable<int>(array.begin(), array.end(), minimum)},
+                {"Segment tree",    new cpa::SegmentTree<int>(array.begin(), array.end(), minimum)},
+                {"Fenwick tree",    new cpa::FenwickTree<int>(array.begin(), array.end(), minimum)},
+                {"Sqrt decomposer", new cpa::SqrtDecomposer<int>(array.begin(), array.end(), minimum)},
+                {"Treap",           new cpa::Treap<int>(array.begin(), array.end(), minimum)},
         };
         for (const auto&[l, r] : query) {
             auto real_result = std::accumulate(array.begin() + l, array.begin() + r + 1, INT_MAX, minimum);
