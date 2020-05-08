@@ -207,16 +207,16 @@ namespace cpa {
         bool left_has = t_current->left != nullptr && t_left_index < left_size;
         bool current_has = t_left_index <= left_size && left_size <= t_right_index;
         bool right_has = t_current->right != nullptr && left_size + 1 <= t_right_index;
-        if (left_has && !current_has) {
-            return valueOnSegment(t_current->left, t_left_index, t_right_index);
-        }
-        if (right_has && !current_has) {
-            return valueOnSegment(t_current->right, t_left_index - left_size - 1, t_right_index - left_size - 1);
+        if (!current_has){
+            if (left_has){
+                return valueOnSegment(t_current->left, t_left_index, t_right_index);
+            } else {
+                return valueOnSegment(t_current->right, t_left_index - left_size - 1, t_right_index - left_size - 1);
+            }
         }
         auto result = t_current->value;
         if (left_has) {
-            result = this->m_function(result, valueOnSegment(t_current->left, t_left_index,
-                                                             std::min(t_right_index, left_size)));
+            result = this->m_function(result, valueOnSegment(t_current->left, t_left_index, left_size - 1));
         }
         if (right_has) {
             result = this->m_function(result, valueOnSegment(t_current->right, 0, t_right_index - left_size - 1));

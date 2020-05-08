@@ -3,4 +3,4 @@ project(competitive_algorithms)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(testing test/test.cpp competitiveProgAlgoLib/ISegmentSolver.h competitiveProgAlgoLib/IDataStructure.h competitiveProgAlgoLib/IMutableDataStructure.h competitiveProgAlgoLib/Array.h competitiveProgAlgoLib/ISparseTable.h competitiveProgAlgoLib/SegmentTree.h competitiveProgAlgoLib/FenwickTree.h competitiveProgAlgoLib/SqrtDecomposer.h competitiveProgAlgoLib/Treap.h)
+add_executable(testing test/test.cpp competitiveProgAlgoLib/ISegmentSolver.h competitiveProgAlgoLib/IDataStructure.h competitiveProgAlgoLib/IMutableDataStructure.h competitiveProgAlgoLib/Array.h competitiveProgAlgoLib/ISparseTable.h competitiveProgAlgoLib/SegmentTree.h competitiveProgAlgoLib/FenwickTree.h competitiveProgAlgoLib/SqrtDecomposer.h competitiveProgAlgoLib/Treap.h competitiveProgAlgoLib/IEdge.h competitiveProgAlgoLib/Edge.h competitiveProgAlgoLib/WeightedEdge.h competitiveProgAlgoLib/Graph.h competitiveProgAlgoLib/SuffixAutomaton.h)

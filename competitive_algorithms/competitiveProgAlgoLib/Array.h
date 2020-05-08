@@ -49,14 +49,14 @@ namespace cpa {
     Array<TType, TFunction>::Array(const Array<TType, TFunction> &other) {
         this->m_function = other.m_function;
         this->m_data = other.m_data;
-        this->m_size = m_data.size();
+        this->m_size = other.m_size;
     }
 
     template<class TType, class TFunction>
     Array<TType, TFunction>::Array(Array<TType, TFunction> &&other) noexcept {
         this->m_function = std::move(other.m_function);
         this->m_data = std::move(other.m_data);
-        this->m_size = m_data.size();
+        this->m_size = std::move(other.m_size);
     }
 
     template<class TType, class TFunction>
