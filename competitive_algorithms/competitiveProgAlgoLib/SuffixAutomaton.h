@@ -45,12 +45,12 @@ namespace cpa {
         Node *m_root{};
         Node *m_last{};
 
-        void add_character(char t_c, std::size_t t_length);
+        void addCharacter(char t_c, std::size_t t_length);
 
         void buildInvLinks(Node *current);
     };
 
-    void SuffixAutomaton::add_character(char t_c, std::size_t t_length) {
+    void SuffixAutomaton::addCharacter(char t_c, std::size_t t_length) {
         auto new_node = new Node(t_length);
         auto p = m_last;
         while (p != nullptr && p->child.count(t_c) == 0) {
@@ -93,7 +93,7 @@ namespace cpa {
         m_root = new Node();
         m_last = m_root;
         for (std::size_t i = 0; i < t_s.length(); ++i) {
-            add_character(t_s[i], i + 1);
+            addCharacter(t_s[i], i + 1);
         }
         buildInvLinks(m_root);
     }

@@ -7,7 +7,7 @@
 #include "../competitiveProgAlgoLib/WeightedEdge.h"
 #include "../competitiveProgAlgoLib/SuffixAutomaton.h"
 #include "../competitiveProgAlgoLib/Array.h"
-#include "../competitiveProgAlgoLib/ISparseTable.h"
+#include "../competitiveProgAlgoLib/SparseTable.h"
 #include "../competitiveProgAlgoLib/SegmentTree.h"
 #include "../competitiveProgAlgoLib/FenwickTree.h"
 #include "../competitiveProgAlgoLib/SqrtDecomposer.h"
@@ -372,7 +372,7 @@ TEST_CASE("Suffix automaton", "[suf_automaton]") {
     }
 
     SECTION("long string of equals character") {
-        std::string sa(100, 'a');
+        std::string sa(1000, 'a');
         cpa::SuffixAutomaton a2(sa);
         REQUIRE(a2.find("a") == 0);
         std::vector<int> pos(sa.length());

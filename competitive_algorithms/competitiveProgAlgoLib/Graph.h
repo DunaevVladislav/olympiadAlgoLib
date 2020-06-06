@@ -288,7 +288,7 @@ namespace cpa {
                 findCutVertexes(to, i, was, t_tin, t_fup, timer, isCutVertex);
                 t_fup[t_from] = std::min(t_fup[t_from], t_fup[to]);
                 if (t_parentEdge != -1 && t_fup[to] >= t_tin[t_from]) {
-                    isCutVertex[to] = true;
+                    isCutVertex[t_from] = true;
                 }
             }
         }
